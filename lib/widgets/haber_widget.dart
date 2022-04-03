@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:habergundem/models/HaberlerModel.dart';
+import 'package:habergundem/models/gundem_models/HaberlerModel.dart';
 
 class HaberWidget extends StatefulWidget {
   const HaberWidget({Key? key,required this.widget,required this.index}) : super(key: key);

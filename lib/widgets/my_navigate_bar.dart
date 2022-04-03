@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habergundem/pages/e%C4%9Flence_page.dart';
 import 'package:habergundem/pages/gundem_pages/gundem_page.dart';
-import 'package:habergundem/pages/spor_page.dart';
+import 'package:habergundem/pages/spor_pages/spor_page.dart';
 
 class MyNavigateBar extends StatefulWidget {
   const MyNavigateBar({Key? key}) : super(key: key);

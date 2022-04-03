@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habergundem/models/HavaDurumuModel.dart';
-import 'package:habergundem/services/haberler_havadurumu_service.dart';
+import 'package:habergundem/models/gundem_models/HavaDurumuModel.dart';
+import 'package:habergundem/services/haberler_services/haberler_havadurumu_service.dart';
 import 'package:habergundem/widgets/havadurumu_widget.dart';
 
 class HavaDurumuPage extends StatefulWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:habergundem/models/HaberlerModel.dart';
+import 'package:habergundem/models/gundem_models/HaberlerModel.dart';
 import 'package:habergundem/widgets/haber_widget.dart';
 import 'package:http/http.dart' as http;
-import 'package:habergundem/services/haberler_service.dart';
+import 'package:habergundem/services/haberler_services/haberler_service.dart';
 
 class HaberlerPage extends StatefulWidget {
   const HaberlerPage({Key? key}) : super(key: key);

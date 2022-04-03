@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:habergundem/models/HavaDurumuModel.dart';
+import 'package:habergundem/models/gundem_models/HavaDurumuModel.dart';
 
 class HavaDurumuWidget extends StatefulWidget {
   const HavaDurumuWidget({Key? key,required this.widget}) : super(key: key);
@@ -32,20 +32,41 @@ class _HavaDurumuWidgetState extends State<HavaDurumuWidget> {
                 height: (MediaQuery.of(context).size.height),
                 width: (MediaQuery.of(context).size.width/4)*3,
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(widget.widget.result![secim].day.toString()),
-                    Text(widget.widget.result![secim].date.toString()),
-                    Text(widget.widget.result![secim].degree.toString()),
-                    Text(widget.widget.result![secim].min.toString()),
-                    Text(widget.widget.result![secim].max.toString()),
-                    Text(widget.widget.result![secim].status.toString()),
-                    Text(widget.widget.result![secim].description.toString()),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(widget.widget.result![secim].day.toString(),style: TextStyle(color: Colors.white,fontSize: 40)),
+                            Text(widget.widget.result![secim].date.toString(),style: TextStyle(color: Colors.white,fontSize: 15)),
+                            SizedBox(height: 300,),
+                            Text("Minimum Sıcaklık:"+widget.widget.result![secim].min.toString(),style: TextStyle(color: Colors.white,fontSize: 15),),
+                            Text("Maximum Sıcaklık:"+widget.widget.result![secim].max.toString(),style: TextStyle(color: Colors.white,fontSize: 15),),
+                          ],
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image(image: NetworkImage(widget.widget.result![secim].icon.toString()),height: 75,width: 75),
+                            Text(widget.widget.result![secim].status.toString(),style: TextStyle(color: Colors.white,fontSize: 15),),
+                            Text(widget.widget.result![secim].description.toString(),style: TextStyle(color: Colors.white,fontSize: 15),),
+                            Text(widget.widget.result![secim].degree.toString()+"°",style: TextStyle(color: Colors.white,fontSize: 40),),
+                          ],
+                        )
+                      ],
+                    ),
                   ],
 
                 ),
               ),
               Container(
-                  color: Colors.pink,
                   height: (MediaQuery.of(context).size.height),
                   width: (MediaQuery.of(context).size.width)/4,
                   child: ListView.builder(
@@ -61,16 +82,19 @@ class _HavaDurumuWidgetState extends State<HavaDurumuWidget> {
     );
   }
   Widget button(String gun,int index) {
-    return OutlineButton(
-      splashColor: Colors.white,
-      borderSide: BorderSide(
-          width: 1,
-          color: Colors.white
+    return SizedBox(
+      height: secim == index ? 100 : 75,
+      child: OutlineButton(
+        splashColor: Colors.white,
+        borderSide: BorderSide(
+            width: secim == index ? 2 : 0.5,
+            color: Colors.white,
+        ),
+        onPressed: () {
+          setState(()=>secim=index);
+        },
+        child: Text(gun,style: TextStyle(color: Colors.white)),
       ),
-      onPressed: () {
-        setState(() {int secim=index;});
-      },
-      child: Text(gun,style: TextStyle(color: Colors.white)),
     );
   }
 }
