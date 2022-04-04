@@ -1,15 +1,19 @@
 import 'dart:convert';
-/// result : [{"rank":1,"draw":8,"lose":2,"win":21,"play":31,"point":71,"goalfor":59,"goalagainst":27,"goaldistance":32,"team":"Trabzonspor"},{"rank":2,"draw":7,"lose":7,"win":17,"play":31,"point":58,"goalfor":51,"goalagainst":33,"goaldistance":18,"team":"İttifak Holding Konyaspor"},{"rank":3,"draw":8,"lose":7,"win":16,"play":31,"point":56,"goalfor":54,"goalagainst":35,"goaldistance":19,"team":"Fenerbahçe"},{"rank":4,"draw":7,"lose":9,"win":15,"play":31,"point":52,"goalfor":57,"goalagainst":48,"goaldistance":9,"team":"A. Alanyaspor"},{"rank":5,"draw":9,"lose":8,"win":13,"play":30,"point":48,"goalfor":46,"goalagainst":32,"goaldistance":14,"team":"Adana Demirspor"}]
+/// succes : true
+/// result : [{"rank":"1","draw":"8","lose":"2","win":"21","play":"31","point":"71","goalfor":"59","goalagainst":"27","goaldistance":"32","team":"Trabzonspor"}]
 
 PuanDurumuModel puanDurumuModelFromJson(String str) => PuanDurumuModel.fromJson(json.decode(str));
 String puanDurumuModelToJson(PuanDurumuModel data) => json.encode(data.toJson());
 class PuanDurumuModel {
   PuanDurumuModel({
+      bool? succes, 
       List<Result>? result,}){
+    _succes = succes;
     _result = result;
 }
 
   PuanDurumuModel.fromJson(dynamic json) {
+    _succes = json['succes'];
     if (json['result'] != null) {
       _result = [];
       json['result'].forEach((v) {
@@ -17,14 +21,15 @@ class PuanDurumuModel {
       });
     }
   }
+  bool? _succes;
   List<Result>? _result;
-PuanDurumuModel copyWith({  List<Result>? result,
-}) => PuanDurumuModel(  result: result ?? _result,
-);
+
+  bool? get succes => _succes;
   List<Result>? get result => _result;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
+    map['succes'] = _succes;
     if (_result != null) {
       map['result'] = _result?.map((v) => v.toJson()).toList();
     }
@@ -33,30 +38,30 @@ PuanDurumuModel copyWith({  List<Result>? result,
 
 }
 
-/// rank : 1
-/// draw : 8
-/// lose : 2
-/// win : 21
-/// play : 31
-/// point : 71
-/// goalfor : 59
-/// goalagainst : 27
-/// goaldistance : 32
+/// rank : "1"
+/// draw : "8"
+/// lose : "2"
+/// win : "21"
+/// play : "31"
+/// point : "71"
+/// goalfor : "59"
+/// goalagainst : "27"
+/// goaldistance : "32"
 /// team : "Trabzonspor"
 
 Result resultFromJson(String str) => Result.fromJson(json.decode(str));
 String resultToJson(Result data) => json.encode(data.toJson());
 class Result {
   Result({
-      int? rank, 
-      int? draw, 
-      int? lose, 
-      int? win, 
-      int? play, 
-      int? point, 
-      int? goalfor, 
-      int? goalagainst, 
-      int? goaldistance, 
+      String? rank, 
+      String? draw, 
+      String? lose, 
+      String? win, 
+      String? play, 
+      String? point, 
+      String? goalfor, 
+      String? goalagainst, 
+      String? goaldistance, 
       String? team,}){
     _rank = rank;
     _draw = draw;
@@ -82,46 +87,26 @@ class Result {
     _goaldistance = json['goaldistance'];
     _team = json['team'];
   }
-  int? _rank;
-  int? _draw;
-  int? _lose;
-  int? _win;
-  int? _play;
-  int? _point;
-  int? _goalfor;
-  int? _goalagainst;
-  int? _goaldistance;
+  String? _rank;
+  String? _draw;
+  String? _lose;
+  String? _win;
+  String? _play;
+  String? _point;
+  String? _goalfor;
+  String? _goalagainst;
+  String? _goaldistance;
   String? _team;
-Result copyWith({  int? rank,
-  int? draw,
-  int? lose,
-  int? win,
-  int? play,
-  int? point,
-  int? goalfor,
-  int? goalagainst,
-  int? goaldistance,
-  String? team,
-}) => Result(  rank: rank ?? _rank,
-  draw: draw ?? _draw,
-  lose: lose ?? _lose,
-  win: win ?? _win,
-  play: play ?? _play,
-  point: point ?? _point,
-  goalfor: goalfor ?? _goalfor,
-  goalagainst: goalagainst ?? _goalagainst,
-  goaldistance: goaldistance ?? _goaldistance,
-  team: team ?? _team,
-);
-  int? get rank => _rank;
-  int? get draw => _draw;
-  int? get lose => _lose;
-  int? get win => _win;
-  int? get play => _play;
-  int? get point => _point;
-  int? get goalfor => _goalfor;
-  int? get goalagainst => _goalagainst;
-  int? get goaldistance => _goaldistance;
+
+  String? get rank => _rank;
+  String? get draw => _draw;
+  String? get lose => _lose;
+  String? get win => _win;
+  String? get play => _play;
+  String? get point => _point;
+  String? get goalfor => _goalfor;
+  String? get goalagainst => _goalagainst;
+  String? get goaldistance => _goaldistance;
   String? get team => _team;
 
   Map<String, dynamic> toJson() {

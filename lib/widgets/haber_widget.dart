@@ -40,21 +40,19 @@ class _HaberWidgetState extends State<HaberWidget> {
                 ),
               ),
             ),
-            Expanded(
-                child: Positioned(
-                  child: Text(widget.widget.result![widget.index].name.toString(),
-                      maxLines:2 ,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold
-                      )
-                  ),
-                  top: (MediaQuery.of(context).size.height/4),
-                  left: (MediaQuery.of(context).size.width/9),
-                  width: (MediaQuery.of(context).size.width/7)*5,
-                ),
+            Positioned(
+              child: Text(widget.widget.result![widget.index].name.toString(),
+                  maxLines:2 ,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                  )
+              ),
+              top: (MediaQuery.of(context).size.height/4),
+              left: (MediaQuery.of(context).size.width/9),
+              width: (MediaQuery.of(context).size.width/7)*5,
             ),
           ],
         ),

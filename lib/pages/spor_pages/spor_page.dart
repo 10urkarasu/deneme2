@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habergundem/pages/spor_pages/spor_ma%C3%A7sonu%C3%A7lar%C4%B1_page.dart';
 import 'package:habergundem/pages/spor_pages/spor_puandurumu_page.dart';
 
 class SporPage extends StatefulWidget {
@@ -34,7 +35,7 @@ class _SporPageState extends State<SporPage> {
         body: const TabBarView(
           children: <Widget>[
            PuanDurumu(),
-            PuanDurumu(),
+            MacSonuclari(),
             PuanDurumu(),
           ],
         ),

@@ -87,7 +87,7 @@ class _HavaDurumuWidgetState extends State<HavaDurumuWidget> {
       child: OutlineButton(
         splashColor: Colors.white,
         borderSide: BorderSide(
-            width: secim == index ? 2 : 0.5,
+            width: secim == index ? 1 : 0.5,
             color: Colors.white,
         ),
         onPressed: () {

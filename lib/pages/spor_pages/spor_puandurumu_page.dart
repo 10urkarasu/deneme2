@@ -15,17 +15,16 @@ class _PuanDurumuState extends State<PuanDurumu> {
   Widget build(BuildContext context) {
     return Container(
         child: FutureBuilder<PuanDurumuModel>(
-          future: PuanDurumuApi.getPuanDurumuData(),
+          future: PuanDurumuApi.getPuanDurumuData(context),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return const Center(
-                child: Text('An error has occurred!'),
+                child: Text('Bir Hata Oluştu'),
               );
             } else if (snapshot.hasData) {
               return ListView.builder(
                   itemCount:snapshot.data!.result!.length,
                   itemBuilder: (context,index){
-                    var haber=snapshot.data!.result;
                     return PuanDurumuWidget(widget:snapshot.data!,index: index,);
                   }
               );

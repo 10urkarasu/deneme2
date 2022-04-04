@@ -15,11 +15,11 @@ class _HavaDurumuPageState extends State<HavaDurumuPage> {
   Widget build(BuildContext context) {
     return  Container(
         child: FutureBuilder<HavaDurumuModel>(
-          future: HavaDurumuApi.getHaberlerData(),
+          future: HavaDurumuApi.getHaberlerData(context),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return const Center(
-                child: Text('An error has occurred!'),
+                child: Text('Bir Hata Oluştu'),
               );
             } else if (snapshot.hasData) {
               return HavaDurumuWidget(widget: snapshot.data!);

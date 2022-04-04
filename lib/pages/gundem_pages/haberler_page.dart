@@ -16,17 +16,16 @@ class _HaberlerPageState extends State<HaberlerPage> {
   Widget build(BuildContext context) {
     return Container(
       child: FutureBuilder<HaberlerModel>(
-        future: HaberlerApi.getHaberlerData(),
+        future: HaberlerApi.getHaberlerData(context),
         builder: (context, snapshot) {
           if (snapshot.hasError) {
             return const Center(
-              child: Text('An error has occurred!'),
+              child: Text('Bir Hata Oluştu'),
             );
           } else if (snapshot.hasData) {
             return ListView.builder(
                 itemCount:snapshot.data!.result!.length,
                 itemBuilder: (context,index){
-                  var haber=snapshot.data!.result;
                   return HaberWidget(widget:snapshot.data!,index: index,);
                 }
             );
