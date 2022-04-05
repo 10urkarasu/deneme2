@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habergundem/pages/e%C4%9Flence_page.dart';
 import 'package:habergundem/pages/gundem_pages/gundem_page.dart';
+import 'package:habergundem/pages/profil_pages/profil_pages.dart';
 import 'package:habergundem/pages/spor_pages/spor_page.dart';
 
 class MyNavigateBar extends StatefulWidget {
@@ -16,6 +17,7 @@ class _MyNavigateBarState extends State<MyNavigateBar> {
     GundemPage(),
     SporPage(),
     EglencePage(),
+    ProfilPages()
   ];
   @override
   Widget build(BuildContext context) {
@@ -38,6 +40,11 @@ class _MyNavigateBarState extends State<MyNavigateBar> {
           BottomNavigationBarItem(
             icon: Icon(Icons.add),
             label: "Eğlence",
+            backgroundColor: Colors.blue,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_box),
+            label: "Profil",
             backgroundColor: Colors.blue,
           ),
         ],
