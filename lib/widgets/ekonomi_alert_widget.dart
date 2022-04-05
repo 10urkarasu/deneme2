@@ -64,7 +64,7 @@ class _AlertState extends State<Alert> {
         FlatButton(
           color: Colors.red,
           textColor: Colors.white,
-          child: Text('CANCEL'),
+          child: Text('Tamam'),
           onPressed: () {
             setState(() {
               Navigator.pop(context);
